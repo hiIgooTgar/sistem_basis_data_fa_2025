@@ -1,0 +1,59 @@
+ERD - Ampu Mart - Praktium 2
+
+tbKaryawan
+idkaryawan: varchar (5)
+namakaryawan: varchar (50)
+teleponkaryawan: varchar (15)
+jabatan: varchar (20)
+sandi: varchar(15)
+
+tbKategori
+idkategori: varchar (3)
+namakategori: varchar (40)
+
+tbPemasok
+idpemasok: varchar (5)
+namapemasok: varchar (50)
+kontak: varchar (25)
+pic: varchar (35)
+
+tbPelanggaan 
+idpelanggan: varchar (10)
+namapelanggan: varchar (50)
+alamatpelanggan: varchar (20)
+teleponpelanggan: varchar (25)
+
+tbProduk
+idproduk: varchar (15)
+namaproduk: varchar (70)
+idkategori: varchar (3)
+stok: int
+harga: int
+
+tbPenjualan 
+notajual: varchar (15)
+tgljual: date
+idkaryawan: varchar (5)
+idpelanggan: varchar (10)
+totaljual: int
+
+tbDetailJual
+notajual: varchar (15)
+idproduk: varchar (15)
+jumlah: smallint
+harga: int
+subtotal: int
+
+tbPembelian
+notabeli: varchar (15)
+tglbeli: date
+idkaryawan: varchar (5)
+idpemasok: varchar (5)
+totalbeli: int
+
+tbDetailBeli
+notabeli: varchar (15)
+idproduk: varchar(15)
+jumlah: smallint
+harga:int 
+subtotal: int
