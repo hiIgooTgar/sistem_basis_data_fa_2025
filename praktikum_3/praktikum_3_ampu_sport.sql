@@ -6,8 +6,8 @@ CREATE TABLE tbpengguna(
  id INT AUTO_INCREMENT PRIMARY KEY,
  username VARCHAR(30) UNIQUE NOT NULL,
  sandi VARCHAR(20) NOT NULL,
- nama VARCHAR(40),
- jabatan ENUM('admin', 'kasir') NOT NULL
+ jabatan ENUM('admin', 'kasir') NOT NULL,
+ nama VARCHAR(40)
 )
 
 CREATE TABLE tbkategori ( 
@@ -41,7 +41,7 @@ CREATE TABLE tbproduk (
 )
 
 CREATE TABLE tbpenjualan (
- nota INT AUTO_INCREMENT PRIMARY KEY,
+ nota INT PRIMARY KEY,
  tgltransaksi DATE,
  id INT,
  idmember VARCHAR(15),
@@ -80,3 +80,14 @@ CREATE TABLE tbdetailbeli (
  FOREIGN KEY (notabeli) REFERENCES tbpembelian(notabeli),
  FOREIGN KEY (kode) REFERENCES tbproduk(kode)
 )
+
+
+DROP DATABASE 24sa11a159_ampu_sport;
+
+DROP TABLE tbkategori;
+DROP TABLE tbdetailbeli;
+ 
+ALTER TABLE tbkategori ADD kodekategori VARCHAR(20) NOT NULL AFTER idkategori;
+ALTER TABLE tbkategori ADD kodekategori VARCHAR(20) NOT NULL FIRST;
+ALTER TABLE tbkategori DROP COLUMN kodekategori;
+ALTER TABLE tbkategori CHANGE kodekategori kodekategori INT(11) NOT NULL;
