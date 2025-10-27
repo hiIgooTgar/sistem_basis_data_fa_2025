@@ -34,6 +34,7 @@ SHOW GRANTS FOR user_kasir@localhost;
 SHOW GRANTS FOR user_member@localhost;
 
 SET PASSWORD FOR user_owner@'localhost' = PASSWORD('owner');
+SET PASSWORD FOR user_admin@'localhost' = PASSWORD('admin123');
 
 REVOKE INSERT ON 24sa11a159_ampu_sport.* FROM 'user_owner'@'localhost';
 REVOKE ALL ON 24sa11a159_ampu_sport.* FROM 'user_owner'@'localhost';
