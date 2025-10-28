@@ -110,3 +110,37 @@ FROM tbpenjualan GROUP BY idmember;
 SELECT idpemasok, SUM(totalbeli) AS total_pembelian
 FROM tbpembelian GROUP BY idpemasok;
 
+-- No Tugas 10
+SELECT kode AS kode_produk ,SUM(jml) AS total_terjual FROM tbdetailjual
+GROUP BY kode HAVING total_terjual > 5 ORDER BY total_terjual DESC;
+
+
+
+
+
+
+
+SELECT * FROM tbproduk
+SELECT * FROM tbpenjualan
+-- Contoh
+SELECT * FROM tbpembelian
+SELECT * FROM tbpengguna
+
+
+UPDATE tbproduk SET stok = 200 WHERE kode = "KPD05";
+-- Contoh 
+UPDATE tbproduk SET stok = 160, nama = 'Bola (Piala Series EURO)' WHERE kode = "KPD05";
+
+
+INSERT INTO tbpembelian(notabeli, tgl, id, idpemasok, totalbeli) VALUES
+('NBP06', '2025-9-21', 1, 'ISP02', 2400000);
+
+INSERT INTO tbpenjualan(nota, tgltransaksi, id, idmember, total) VALUES
+(1106, '2025-10-25', 1, 'M05', 2400000);
+
+-- Contoh 
+INSERT INTO tbproduk(kode, nama, idkategori, harga, stok) VALUES
+("KPD07", "Penyanggah Lompat Tinggi", "K08", 500000, 80);
+
+INSERT INTO tbkategori(idkategori, nama_kategori) VALUES
+('K011', 'Alat Fitnes GYM');
