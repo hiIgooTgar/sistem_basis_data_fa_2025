@@ -56,6 +56,11 @@ GROUP BY idkategori HAVING SUM(stok) >= 10
 
 
 
+
+
+
+
+
 /* Tugas Praktikum 5*/
 -- No Tugas 1
 CREATE USER 'igo_tegar'@'localhost' IDENTIFIED BY '24sa11a159';
@@ -82,9 +87,15 @@ REVOKE SELECT, UPDATE (stok) ON 24sa11a159_ampu_sport.tbproduk FROM 'igo_tegar'@
 DROP USER 'igo_tegar'@'localhost'
 SHOW GRANTS FOR 'igo_tegar'@'localhost'
 
+
+
 -- No Tugas 3
 CREATE USER 'supervisor'@'localhost';
 GRANT ALL ON 24sa11a159_ampu_sport.* TO 'supervisor'@'localhost';
+
+DROP USER 'supervisor'@'localhost'
+SHOW GRANTS FOR 'supervisor'@'localhost';
+
 
 -- No Tugas 4
 SELECT kode, nama, harga FROM tbproduk WHERE harga = (SELECT MAX(harga) FROM tbproduk)
