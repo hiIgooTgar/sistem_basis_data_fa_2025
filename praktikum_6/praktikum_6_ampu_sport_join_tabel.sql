@@ -22,8 +22,6 @@ ORDER BY kode
 
 
 
-
-
 /* Join tabel produk dengan tabel kategori - use AS  */
 SELECT p.kode, p.nama, k.nama_kategori FROM tbproduk AS p
 CROSS JOIN tbkategori AS k
