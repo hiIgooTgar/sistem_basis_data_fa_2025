@@ -31,9 +31,12 @@ INSERT INTO tbpeminjaman(idpinjam, idanggota, judul, tglpinjam, tglkembali, ket)
 ('3', 'A3', 'Pemrograman Web', '2025-11-4', '2025-11-7', 'kembali');
 
 
+SELECT * FROM tbanggota
+SELECT * FROM tbpeminjaman
+
 -- No 4
 INSERT INTO tbanggota(idanggota, nama, alamat) VALUES
-('A4', 'Igo Tegar Prambudhy', 'Purbalingga')
+('A4', 'Tri Sanjaya', 'Purbalingga')
 
 
 -- No 5
