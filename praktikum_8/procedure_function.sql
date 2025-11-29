@@ -7,7 +7,11 @@ BEGIN
 
 END $$
 
-CALL tambahMember('M06', 'Kinar Mizania', 'Banjarnegara', 'NULL');
+CALL tambahMember('M06', 'Kinar Mizania', 'Banjarnegara', NULL);
+CALL tambahMember('M07', 'Anjar Laksmana', NULL, NULL);
+
+SELECT * FROM tbmember;
+
 
 
 
@@ -22,6 +26,10 @@ BEGIN
 END $$
 
 CALL ubahMember('M06', 'Kinar Mizania', 'Purwokerto', '089161523163');
+CALL ubahMember('M07', 'Anjar Laksmana', 'Surakarta', '085165354233');
+
+SELECT * FROM tbmember;
+
 
 
 
@@ -33,11 +41,18 @@ BEGIN
 END$$
 
 CALL hapusMember('M06');
+CALL hapusMember('M07');
+
+SELECT * FROM tbmember;
+
 
 
 DROP PROCEDURE tambahMember;
 DROP PROCEDURE ubahMember;
 DROP PROCEDURE hapusMember;
+
+
+
 
 
 DELIMITER$$
@@ -48,6 +63,8 @@ END$$
 
 CALL jumlahMember(@jumlah_member);
 SELECT @jumlah_member AS 'Jumlah Member';
+
+SELECT * FROM tbmember;
 
 
 
@@ -61,6 +78,14 @@ END$$
 
 CALL jumlahMemberAlamat('Purbalingga', @jumlah);
 SELECT @jumlah AS 'Jumlah Member';
+
+
+SELECT * FROM tbmember;
+
+
+
+DROP PROCEDURE jumlahMember;
+DROP PROCEDURE jumlahMemberAlamat;
 
 
 
@@ -86,7 +111,7 @@ BEGIN
 	RETURN jumlah;
 END$$
 
-SELECT jumlahStok('KPD01') AS 'Jumlah Stok Barang';
+SELECT jumlahStok('KPD02') AS 'Jumlah Stok Barang';
 
 
 
