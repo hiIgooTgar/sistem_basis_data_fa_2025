@@ -10,7 +10,7 @@ SELECT * FROM tbproduk;
 
 -- Query untuk menampilkan keterangan alamat pelanggan yg di luar purwokerto
 SELECT idmember, alamat,
-	IF(alamat = 'Purwokerto' OR 'PWT', 'Di Kota Purwokerto', 'Luar Purwokerto')
+	IF(alamat = 'Purwokerto' OR alamat = 'PWT', 'Di Kota Purwokerto', 'Luar Purwokerto')
 	AS 'Keterangan Alamat'
 FROM tbmember;
 
