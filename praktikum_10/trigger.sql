@@ -168,7 +168,7 @@ FOR EACH ROW
 BEGIN
 	IF OLD.idmember = OLD.idmember THEN
 	  SIGNAL SQLSTATE '45000' 
-	  SET MESSAGE_TEXT = "enghapusan data member diblokir! Data master tidak boleh dihapus.";
+	  SET MESSAGE_TEXT = "Penghapusan data member diblokir! Data master tidak boleh dihapus.";
 	END IF;
 END $$
 
