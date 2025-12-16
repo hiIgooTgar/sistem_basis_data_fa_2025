@@ -18,7 +18,7 @@ FROM tbmember;
 SELECT * FROM tbmember;
 
 
--- Query procedure untuk menampilkan keterangan harga produk
+-- Query untuk menampilkan keterangan harga produk
 SELECT kode, nama, harga,
   CASE 
     WHEN harga < 300000 THEN 'Murah'
