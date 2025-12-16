@@ -85,7 +85,7 @@ DELETE FROM tbpenjualan WHERE nota = 1105;
 
 
 -- Tugas No. 1 bisa di run ketika trigger bernama trig_jual nya dihapus, karena fungsi trigger nya kurang lebih sama
---  hanya beda di -/+ saja... dan pengguna tabelnya juga sama yaitu tbpenjualan dan tbdetailbeli
+--  hanya beda di -/+ saja... dan pengguna tabelnya juga sama yaitu tbpenjualan dan tbdetailbeli dan sebaliknya jika trig_jual akan digunakan
 
 -- No. 1 Trigger AFTER INSERT
 DELIMITER $$
@@ -197,3 +197,26 @@ DELETE FROM tbdetailjual WHERE nota = 1107;
 DELETE FROM tbdetailjual WHERE nota = 1108;
 DELETE FROM tbdetailjual WHERE nota = 1109;
 DELETE FROM tbdetailjual WHERE nota = 1110;
+
+
+
+
+-- Membuat Log Tabel Produk Harga Lama dan Harga Baru
+CREATE TABLE tblog_produk (
+ id_log INT AUTO_INCREMENT PRIMARY KEY,
+ kode VARCHAR(15),
+ harga_lama INT,
+ harga_baru INT,
+ waktu DATETIME 
+)
+
+DELIMITER $$
+CREATE OR REPLACE TRIGGER tr_update_hargaproduk AFTER UPDATE ON tbproduk
+FOR EACH ROW 
+BEGIN 
+	INSERT INTO tblog_produk (kode, harga_lama, harga_baru, waktu)
+        VALUES (OLD.kode, OLD.harga, NEW.harga, NOW());
+END $$
+
+UPDATE tbproduk SET harga = 300000 WHERE kode = "KPD07";
+SELECT * FROM tbproduk;
